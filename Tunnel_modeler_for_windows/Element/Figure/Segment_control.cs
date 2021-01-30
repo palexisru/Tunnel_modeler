@@ -16,13 +16,13 @@ namespace Modeler.Tunnel.Windows.Element.Figure
         public const int resource_size_const = 32;
         public const int circle_size_const = 4;
         public const int devider = 8;
-
-        public Abstraction_enum abstraction;
-        public Group_enum group;
-        public Period_enum period;
-        public Direction_enum direction;
-        public Decision_enum decision;
-        public Resource_enum resource;
+        Segment_specification configuration = new Segment_specification();
+        Resource_enum resource;
+        Direction_enum direction;
+        Period_enum period;
+        Abstraction_enum abstraction;
+        Decision_enum decision;
+        Group_enum group;
 
         int actual_width;
         int actual_height;
@@ -35,7 +35,6 @@ namespace Modeler.Tunnel.Windows.Element.Figure
         public Segment_control()
         {
             InitializeComponent();
-            resource = Resource_enum.attention_resource | Resource_enum.energe_resource;
         }
 
         private void Segment_control_Paint(object sender, PaintEventArgs e)
@@ -72,7 +71,7 @@ namespace Modeler.Tunnel.Windows.Element.Figure
         private void Update_checking()
         {
             абстрактноеToolStripMenuItem.Checked = (abstraction == Abstraction_enum.Abstract_abstraction);
-            конкретноеToolStripMenuItem.Checked = (abstraction == Abstraction_enum.Matter_abstraction);
+            конкретноеToolStripMenuItem.Checked = (abstraction == Abstraction_enum.Nature_abstraction);
 
             инициацияToolStripMenuItem.Checked = (period == Period_enum.Initiation_period);
             развитиеToolStripMenuItem.Checked = (period == Period_enum.Development_period);
@@ -102,7 +101,7 @@ namespace Modeler.Tunnel.Windows.Element.Figure
             сообщениеToolStripMenuItem.Checked = (resource & Resource_enum.message_resource) != 0;
             оборудованиеToolStripMenuItem.Checked = (resource & Resource_enum.equipment_resource) != 0;
             причинаToolStripMenuItem.Checked = (resource & Resource_enum.cause_resource) != 0;
-            величинаToolStripMenuItem.Checked = (resource & Resource_enum.size_resource) != 0;
+            величинаToolStripMenuItem.Checked = (resource & Resource_enum.force_resource) != 0;
             способToolStripMenuItem.Checked = (resource & Resource_enum.method_resource) != 0;
             мотивацияToolStripMenuItem.Checked = (resource & Resource_enum.motivation_resource) != 0;
             вниманиеToolStripMenuItem.Checked = (resource & Resource_enum.attention_resource) != 0;
@@ -240,7 +239,7 @@ namespace Modeler.Tunnel.Windows.Element.Figure
 
         private void конкретноеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abstraction = Abstraction_enum.Matter_abstraction;
+            abstraction = Abstraction_enum.Nature_abstraction;
             Update_checking();
         }
 
@@ -289,8 +288,8 @@ namespace Modeler.Tunnel.Windows.Element.Figure
 
         private void величинаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            resource ^= Resource_enum.size_resource;
-            величинаToolStripMenuItem.Checked = (resource & Resource_enum.size_resource) != 0;
+            resource ^= Resource_enum.force_resource;
+            величинаToolStripMenuItem.Checked = (resource & Resource_enum.force_resource) != 0;
         }
 
         private void Segment_control_Load(object sender, EventArgs e)
@@ -459,6 +458,18 @@ namespace Modeler.Tunnel.Windows.Element.Figure
         {
             group = Group_enum.Empty_group;
             Update_checking();
+        }
+
+        private void InitializeComponent_rezerv()
+        {
+            this.SuspendLayout();
+            // 
+            // Segment_control
+            // 
+            this.Name = "Segment_control";
+            this.Size = new System.Drawing.Size(150, 114);
+            this.ResumeLayout(false);
+
         }
     }
 }

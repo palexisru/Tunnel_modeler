@@ -9,9 +9,25 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Modeler.Tunnel.Windows</RootNamespace>
     <AssemblyName>Tunnel_modeler_for_windows</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -28,7 +44,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -50,20 +66,44 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Element\Figure\Segment_control.Designer.cs" />
-    <Compile Include="Element\Layout_control.cs">
+    <Compile Include="Element\Figure\Segment_definition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Element\Figure\Segment_definition.Designer.cs">
+      <DependentUpon>Segment_definition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Element\Figure\Segment_specification.cs" />
+    <Compile Include="Forms\Layout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Element\Layout_control.Designer.cs" />
-    <Compile Include="Element\Page.cs">
+    <Compile Include="Forms\Layout.Designer.cs">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Element\Page.Designer.cs" />
-    <Compile Include="MDI_Parent.cs">
+    <Compile Include="Forms\Page.Designer.cs">
+      <DependentUpon>Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stencil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDI_Parent.Designer.cs" />
+    <Compile Include="Forms\Stencil.Designer.cs">
+      <DependentUpon>Stencil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_Parent_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Parent_main.Designer.cs">
+      <DependentUpon>MDI_Parent_main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\Images\Stencil\Stencil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stencil.resx</DependentUpon>
+    </Compile>
     <Compile Include="Segment\Abstraction_enum.cs" />
     <Compile Include="Segment\Decision_enum.cs" />
     <Compile Include="Segment\Direction_enum.cs" />
@@ -71,8 +111,21 @@
     <Compile Include="Segment\Period_enum.cs" />
     <Compile Include="Segment\Resource_enum.cs" />
     <EmbeddedResource Include="Element\Figure\Segment_control.resx" />
-    <EmbeddedResource Include="Element\Page.resx" />
-    <EmbeddedResource Include="MDI_Parent.resx" />
+    <EmbeddedResource Include="Element\Figure\Segment_definition.resx">
+      <DependentUpon>Segment_definition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Layout.resx">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Page.resx">
+      <DependentUpon>Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stencil.resx">
+      <DependentUpon>Stencil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Parent_main.resx">
+      <DependentUpon>MDI_Parent_main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,6 +136,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resource\Images\Stencil\Stencil.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stencil.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,7 +153,34 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Segment.ico" />
+    <Content Include="Resource\Images\Stencil\Segment64.bmp" />
+    <Content Include="Resource\Images\Stencil\Segment32.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

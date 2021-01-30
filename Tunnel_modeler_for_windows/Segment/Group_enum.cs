@@ -11,15 +11,16 @@ namespace Modeler.Tunnel.Windows.Segment
         Unknown_group,
         Empty_group,
         Fractal_group,
-        Energy_group,
         Information_group,
+        Energy_group,
         Elemental_group,
         Process_group,
         Synergic_group,
+        Technology_group,
         Bureaucratic_group,
         Ecology_group,
         Cosmic_group,
-        G11_group,
-        G12_group
+        G32_group,
+        G33_group
     }
 }

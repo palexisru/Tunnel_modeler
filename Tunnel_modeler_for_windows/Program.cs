@@ -8,7 +8,7 @@ namespace Modeler.Tunnel.Windows
 {
     static class Program
     {
-        public static MDI_Parent mdi_parent;
+        public static MDI_Parent_main mdi_parent;
 
         /// <summary>
         /// Главная точка входа для приложения.
@@ -18,7 +18,7 @@ namespace Modeler.Tunnel.Windows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mdi_parent = new MDI_Parent();
+            mdi_parent = new MDI_Parent_main();
             Application.Run(mdi_parent);
         }
     }

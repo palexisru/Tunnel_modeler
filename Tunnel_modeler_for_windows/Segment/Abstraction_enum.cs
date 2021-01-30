@@ -9,7 +9,7 @@ namespace Modeler.Tunnel.Windows.Segment
     public enum Abstraction_enum
     {
         Unknown_abstraction,
-        Matter_abstraction,
+        Nature_abstraction,
         Real_abstraction,
         Abstract_abstraction
     }

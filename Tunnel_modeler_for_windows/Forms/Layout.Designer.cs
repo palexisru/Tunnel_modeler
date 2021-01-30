@@ -1,6 +1,6 @@
-﻿namespace Modeler.Tunnel.Windows.Element
+﻿namespace Modeler.Tunnel.Windows.Forms
 {
-    partial class Layout_control
+    partial class Layout
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Layout
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Name = "Layout";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Layout_Paint);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

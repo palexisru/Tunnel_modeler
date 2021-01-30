@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Modeler.Tunnel.Windows.Element
+namespace Modeler.Tunnel.Windows.Element.Figure
 {
-    public partial class Page : Form
+    public partial class Segment_definition : Form
     {
-        public Page()
+        public Segment_definition()
         {
             InitializeComponent();
         }
